@@ -1,0 +1,37 @@
+[package]
+name = "rust-kv-server"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[example]]
+name = "client"
+
+[[example]]
+name = "dummy_server"
+
+[[example]]
+name = "server"
+
+[dependencies]
+bytes = "1" # 高效处理网络 buffer 的库
+prost = "0.9" # protobuf 处理
+tracing = "0.1"
+http = "0.2" # 我们使用 HTTP status code 所以引入这个类型库
+dashmap = "5"
+thiserror = "1"
+
+futures = "0.3"# 提供 Stream trait
+tokio = { version = "1", features = ["full"] }
+anyhow = "1"
+tracing-subscriber = "0.3"
+async-prost = "0.3" # 支持把 protobuf 封装成 TCP frame
+
+[dev-dependencies]
+
+
+[build-dependencies]
+prost-build = "0.9" # 编译 protobuf
+
+
